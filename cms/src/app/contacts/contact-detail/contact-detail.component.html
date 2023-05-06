@@ -2,14 +2,14 @@
   <div class="panel-heading">
     <div class="row">
       <div class="col-xs-12">
-        <h1>{{null}}</h1>
+        <h1>{{ contact.name }}</h1>
       </div>
     </div>
     <div class="row panel-body">
-      <div class="col-xs-12">
-        <img src="" alt="" class="img-responsive">
+      <div class="col-xs-6">
+        <img src="{{ contact.imageUrl }}" alt="" class="img-responsive">
       </div>
-      <div class="btn-group pull-right">
+      <div class="btn-group pull-right" style="margin: 50px auto;">
         <button
         type="button"
         class="btn btn-primary dropdown-toggle"
@@ -31,12 +31,12 @@
   <div class="panel-body">
     <div class="row panel">
       <div class="col-xs-12">
-        <h4>Email:</h4>
+        <h4>Email: {{ contact.email }}</h4>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <h4>Phone:</h4>
+        <h4>Phone: {{ contact.phone }}</h4>
       </div>
     </div>
   </div>

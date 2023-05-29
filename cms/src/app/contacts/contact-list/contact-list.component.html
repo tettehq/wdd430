@@ -1,23 +1,21 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <div class="row">
+      <div class="row">
       <div class="col-xs-6">
         <h1 class="pull-left">Contacts</h1>
       </div>
       <div class="col-xs-6">
-        <button class="btn btn-success btn-lg pull-right" style="margin-top: 10px;">New Contact</button>
+        <button class="btn btn-success btn-lg pull-right" style="margin-top: 10px;" [routerLink]="['new']">New Contact</button>
       </div>
     </div>
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-xs-12"
-      href="#"
-      class="list-group-item clearfix"
-      *ngFor="let contact of contacts">
+      <div class="col-xs-12">
           <cms-contact-item
+          class="list-group-item clearfix"
+          *ngFor="let contact of contacts"
           [contactItem]="contact"
-          (click)="onSelected(contact)"
           ></cms-contact-item>
       </div>
     </div>

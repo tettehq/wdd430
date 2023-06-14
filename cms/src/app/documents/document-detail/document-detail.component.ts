@@ -24,7 +24,7 @@ export class DocumentDetailComponent implements OnInit{
     this.route.params.subscribe(
       (params: Params) => {
         const id = params.id;
-        this.document = this.documentService.getdocument(id);
+        this.document = this.documentService.getDocument(id);
       }
     )
     this.nativeWindow = this.windowService.getNativeWindow();

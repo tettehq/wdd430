@@ -8,4 +8,8 @@ import { Contact } from '../contact.model';
 })
 export class ContactItemComponent {
   @Input('contactItem') contact: Contact;
+
+  log() {
+    console.log(this.contact.name + 'nil?')
+  }
 }

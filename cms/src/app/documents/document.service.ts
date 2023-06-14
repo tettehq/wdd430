@@ -21,11 +21,11 @@ export class DocumentService {
     this.maxDocumentId = this.getMaxId();
   }
 
-  getdocuments() {
+  getDocuments() {
     return this.documents.slice();
   }
 
-  getdocument(id: string): Document {
+  getDocument(id: string): Document {
     for (let i = 0; i < this.documents.length; i++) {
       if (this.documents[i].id == id) {
         return this.documents[i]
@@ -61,10 +61,12 @@ export class DocumentService {
  }
 
  addDocument(newDocument: Document) {
-  if (newDocument === undefined || null) {
+  if (newDocument === undefined || newDocument === null) {
+    // console.log('Stuck here!');
     return
   }
   this.maxDocumentId++;
+  // console.log(this.maxDocumentId);
   newDocument.id = `${this.maxDocumentId}`;
   this.documents.push(newDocument);
   const documentsList = this.documents.slice();

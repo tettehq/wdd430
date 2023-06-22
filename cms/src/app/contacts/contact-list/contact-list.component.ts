@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
-import { Subscription } from 'rxjs'
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'cms-contact-list',
@@ -12,6 +12,8 @@ export class ContacListComponent implements OnInit, OnDestroy{
   private subscription: Subscription;
 
   contacts: Contact[] = [];
+
+  term: string;
 
   constructor(private contactService: ContactService) {}
 
@@ -27,6 +29,10 @@ export class ContacListComponent implements OnInit, OnDestroy{
         this.contacts = contactsList;
       }
     )
+  }
+
+  search(value: string) {
+    this.term = value
   }
 
   ngOnDestroy(): void {

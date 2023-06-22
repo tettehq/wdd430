@@ -15,7 +15,7 @@ export class DocumentListComponent implements OnInit, OnDestroy {
 
   constructor(private documentService: DocumentService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.documents = this.documentService.getDocuments();
     this.documentService.documentChangedEvent.subscribe(
       (documents: Document[]) => {
@@ -29,7 +29,7 @@ export class DocumentListComponent implements OnInit, OnDestroy {
     )
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 }

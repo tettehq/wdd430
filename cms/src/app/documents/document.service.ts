@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Document } from './document.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
 import { Subject } from 'rxjs';
 
@@ -7,21 +8,35 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class DocumentService {
-  documents: Document[];
+  documents: Document[] = [];
   documentChangedEvent = new EventEmitter<Document[]>();
 
   documentSelectedEvent = new EventEmitter<Document>();
 
-  documentListChangedEvent = new Subject<Document[]>();
+  documentListChangedEvent = new Subject<any>();
 
   maxDocumentId: number;
 
-  constructor() {
-    this.documents = MOCKDOCUMENTS;
+  constructor(private http: HttpClient) {
+    // this.documents = MOCKDOCUMENTS;
     this.maxDocumentId = this.getMaxId();
+
   }
 
   getDocuments() {
+    // return this.documents.slice();
+    this.http.get<Document[]>('https://wdd430-project1-default-rtdb.firebaseio.com/documents.json').subscribe(
+      (documents: Document[]) => {
+        this.documents = documents;
+        this.maxDocumentId = this.getMaxId();
+        this.documents.sort((a, b) => (a.name > b.name ? 1 : b.name ? -1 : 0));
+        this.documentListChangedEvent.next(this.documents.slice());
+        console.log(typeof(this.documents));
+      },
+      (error: any) => {
+        console.log('An error occurred '+ error);
+      }
+    )
     return this.documents.slice();
   }
 
@@ -44,7 +59,7 @@ export class DocumentService {
     }
     this.documents.splice(pos, 1);
     const documentsList = this.documents.slice();
-    this.documentListChangedEvent.next(documentsList);
+    this.documentListChangedEvent.next(this.storeDocuments());
  }
 
  getMaxId(): number {
@@ -70,7 +85,7 @@ export class DocumentService {
   newDocument.id = `${this.maxDocumentId}`;
   this.documents.push(newDocument);
   const documentsList = this.documents.slice();
-  this.documentListChangedEvent.next(documentsList);
+  this.documentListChangedEvent.next(this.storeDocuments());
  }
 
  updateDocument(originalDocument: Document, newDocument: Document) {
@@ -86,6 +101,20 @@ export class DocumentService {
   newDocument.id = originalDocument.id;
   this.documents[pos] = newDocument;
   const documentsList = this.documents.slice();
-  this.documentListChangedEvent.next(documentsList);
+  this.documentListChangedEvent.next(this.storeDocuments());
+ }
+
+ storeDocuments() {
+  const data = JSON.stringify(this.documents);
+  return this.http.put(
+    'https://wdd430-project1-default-rtdb.firebaseio.com/documents.json',
+    data,
+    {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }).subscribe(
+      () => {
+        this.documentListChangedEvent.next(this.documents.slice());
+      }
+    )
  }
 }

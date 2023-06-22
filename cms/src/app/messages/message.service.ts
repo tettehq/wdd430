@@ -29,7 +29,7 @@ export class MessageService {
       (messages: Message[]) => {
         this.messages = messages;
         this.maxMessageId = this.getMaxId();
-        this.messages.sort((a, b) => (a.id > b.id ? 1 : b.id ? -1 : 0));
+        // this.messages.sort((a, b) => (a.id > b.id ? 1 : b.id ? -1 : 0));
         this.messageListChangedEvent.next(this.messages.slice());
         console.log(typeof(this.messages));
       },

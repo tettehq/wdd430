@@ -11,7 +11,7 @@ export class MessageEditComponent {
   @ViewChild('subject', {static: true}) subject: ElementRef;
   @ViewChild('msgText', {static: true}) msgText: ElementRef;
   // @Output() addMessageEvent = new EventEmitter<Message>();
-  currentSender: string = '99';
+  currentSender: string = '101';
 
   constructor(private messageService: MessageService) {}
 
@@ -20,7 +20,7 @@ export class MessageEditComponent {
     const msgTextValue = this.msgText.nativeElement.value;
 
     const newMessage = new Message(
-      '1', subjectValue, msgTextValue, this.currentSender
+      null, '1', subjectValue, msgTextValue, this.currentSender
     )
 
     // this.addMessageEvent.emit(message);

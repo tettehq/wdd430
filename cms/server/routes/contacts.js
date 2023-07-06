@@ -30,8 +30,7 @@ router.post('/', (req, res, next) => {
     group: req.body.group
   });
 
-  contact.save().populate('group')
-    .then(createdContact => {
+  contact.save().then(createdContact => {
       res.status(201).json({
         message: 'Contact added successfully',
         contact: createdContact

@@ -1,0 +1,50 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>{{ cartItem.name }}</h1>
+      </div>
+    </div>
+    <div class="row panel-body">
+      <div class="col-xs-6">
+        <img src="{{ cartItem.imageUrl }}" alt="" class="img-responsive">
+      </div>
+      <div class="btn-group pull-right" style="margin: 50px auto;">
+        <a
+        type="button"
+        class="btn btn-primary dropdown-toggle"
+        style="margin:0 5px;"
+        [routerLink]="['edit']">
+        Edit
+        </a>
+        <a
+          type="button"
+          class="btn btn-danger dropdown-toggle"
+          (click)="onDelete()">
+          Delete
+        </a>
+        <!-- <ul class="dropdown-menu">
+          <li><a href="#">Edit</a></li>
+          <li><a href="#">Delete</a></li>
+        </ul> -->
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Description: {{ cartItem.description }}</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Quantity: {{ cartItem.quantity }}</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Price: {{'$' + cartItem.price }}</h4>
+      </div>
+    </div>
+  </div>
+</div>

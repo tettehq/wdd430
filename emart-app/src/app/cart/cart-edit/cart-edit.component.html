@@ -1,0 +1,120 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>{{ cartItem.name }}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <img src="{{ cartItem.imageUrl }}" alt="" class="img-responsive">
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <form id="cart-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="name">Name:</label>
+          <input
+          type="text"
+          id="name"
+          class="form-control required"
+          name="name"
+          [ngModel]="cartItem.name"
+          required
+          readonly
+          #name="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="description">Description:</label>
+          <textarea
+          id="description"
+          class="form-control required"
+          name="description"
+          [ngModel]="cartItem.description"
+          required
+          readonly
+          #description="ngModel"></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="quantity">Quantity:</label>
+          <input
+          type="number"
+          id="quantity"
+          class="form-control required"
+          max="100"
+          min="1"
+          name="quantity"
+          [ngModel]="cartItem.quantity"
+          required
+          #quantity="ngModel">
+        </div>
+      </div>
+      <div
+      class="alert alert-danger row"
+      *ngIf="!quantity.valid && quantity.touched">The quantity is not valid.</div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="price">Price:</label>
+          $<input
+          type="text"
+          id="price"
+          class="form-control required"
+          name="price"
+          [ngModel]="cartItem.price"
+          required
+          readonly
+          #price="ngModel">
+        </div>
+      </div>
+
+      <div class="row hidden">
+        <div class="col-sm-12 form-group">
+          <label for="imageUrl">ImageUrl:</label>
+          <input
+          type="text"
+          id="imageUrl"
+          class="form-control required"
+          name="imageUrl"
+          [ngModel]="cartItem.imageUrl"
+          required
+          readonly
+          #imageUrl="ngModel">
+        </div>
+      </div>
+
+      <div class="row hidden">
+        <div class="col-sm-12 form-group">
+          <label for="category">Category:</label>
+          <input
+          type="text"
+          id="category"
+          class="form-control required"
+          name="category"
+          [ngModel]="cartItem.category"
+          required
+          readonly
+          #category="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 btn-toolbar">
+          <button
+          class="btn btn-success"
+          type="submit"
+          [disabled]="!f.valid">Save</button>
+          <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

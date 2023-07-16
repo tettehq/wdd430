@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-xs-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="title pad-left-right">Orders</h3>
+      </div>
+      <div class="panel-body">
+        <a
+          class="list-group-item clearfix"
+          *ngFor="let order of orders"
+          [routerLink]="[order.id]">
+          <div class="col-xs-4">
+            <h4 class="list-group-item-heading">{{ order?.name }}</h4>
+          </div>
+          <div class="col-xs-4">
+            <h4>{{ order.time }}</h4>
+          </div>
+          <div class="col-xs-4">
+            <h4>{{ order.total }}</h4>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <router-outlet></router-outlet>
+  </div>
+</div>

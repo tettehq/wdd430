@@ -1,0 +1,96 @@
+<div class="row title-row col-xs-12">
+  <h1 class="title pad-left-right">Complete your order</h1>
+</div>
+<hr>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form id="payment-form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="row">
+          <div class="col-xs-12 form-group">
+            <label for="itemList">ItemList</label>
+            <select
+            name="itemList"
+            id="itemList"
+            class="form-control"
+            size="{{ size }}"
+            [ngModel]="cartItems"
+            #itemList="ngModel"
+            disabled>
+            <option
+            *ngFor="let item of cartItems"
+            value="item">{{ item.name }}</option>
+          </select>
+          </div>
+        </div>
+
+        <hr>
+        <div class="row">
+          <h3 class="col-xs-12">Card Details</h3>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 form-group">
+            <label for="name">Name:</label>
+            <input
+            type="text"
+            id="name"
+            class="form-control required"
+            name="name"
+            required
+            [ngModel]="order?.name"
+            #name="ngModel">
+          </div>
+        </div>
+
+        <div
+        class="alert alert-danger"
+        *ngIf="!name.valid && name.touched">A name is required</div>
+
+        <div class="row">
+          <div class="col-xs-12 form-group">
+            <label for="email">Email:</label>
+            <input
+            type="text"
+            id="email"
+            class="form-control required"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+            name="email"
+            required
+            [ngModel]="order?.email"
+            #email="ngModel">
+          </div>
+        </div>
+
+        <div
+        class="alert alert-danger"
+        *ngIf="!email.valid && email.touched">Enter a valid Email address</div>
+
+        <div class="row">
+          <div class="col-xs-12 form-group">
+            <label for="total">Total:</label>
+            <input
+            type="text"
+            id="total"
+            class="form-control required"
+            name="total"
+            [ngModel]="'$'+totalPrice"
+            required
+            readonly
+            #total="ngModel">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 btn-toolbar">
+            <button
+            class="btn btn-success"
+            type="submit"
+            [disabled]="!f.valid">Submit</button>
+            <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

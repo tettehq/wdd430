@@ -1,0 +1,52 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>{{ order?.name }}</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <div class="row">
+      <h3 class="col-xs-12">Date: {{ order?.time }}</h3>
+    </div>
+
+    <div class="row">
+      <h3 class="col-xs-12">Email: {{ order?.email }}</h3>
+    </div>
+
+    <div class="row">
+      <h3 class="col-xs-12">Cost: {{ order?.total }}</h3>
+    </div>
+
+    <div class="row">
+      <ul class="list-group col-xs-12">
+        <h4 class="list-group-item active">Items</h4>
+        <li
+        class="list-group-item"
+        *ngFor="let item of order?.items">
+        {{ item.name }}
+        <span class="badge">{{ item.quantity }}</span>
+      </li>
+      </ul>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="btn-group">
+      <a
+      type="button"
+      class="btn btn-primary dropdown-toggle"
+      style="margin:0 5px;"
+      [routerLink]="['/orders']">
+      Close
+      </a>
+      <a
+        type="button"
+        class="btn btn-danger dropdown-toggle"
+        (click)="onDelete()">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

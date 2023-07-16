@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="title pad-left-right">Products</h3>
+      </div>
+      <div class="panel-body">
+        <emart-cart-item
+              class="clearfix"
+              *ngFor="let item of cartItems"
+              [cartItem]="item"></emart-cart-item>
+      </div>
+      <div class="panel-footer">
+        <div class="row">
+          <a [routerLink]="['/payment']">
+            <button class="btn btn-success col-xs-3" [disabled]="disabled">Make Payment</button>
+          </a>
+          <a>
+            <button
+            class="btn btn-danger col-xs-3"
+            (click)="onEmpty()">Empty Cart</button>
+          </a>
+          <div class="btn btn-default col-xs-2 pull-right">
+            Total: ${{ total }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

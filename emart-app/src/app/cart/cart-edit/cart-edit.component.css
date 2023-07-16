@@ -1,0 +1,9 @@
+img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

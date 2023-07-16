@@ -1,0 +1,17 @@
+<div class="row search-row col-md-12">
+  <div class="input-group pull-left pad-left-right">
+    <input
+    class="from-control pull-left"
+    type="text"
+    (keyup)="search(searchBox.value)"
+    placeholder="Enter a search value"
+    #searchBox>
+    <button type="button" class="btn btn-info">
+      <span class="glyphicon glyphicon-search input-group-addon pull-left" (click)="search(searchBox.value)"></span> search
+    </button>
+  </div>
+</div>
+<hr>
+<emart-product-item
+*ngFor="let product of products | productsFilter: term"
+[product]="product"></emart-product-item>

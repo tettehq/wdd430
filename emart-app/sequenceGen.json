@@ -1,0 +1,5 @@
+{
+  "maxProductId": 100,
+  "maxOrderId": 100,
+  "maxCartId": 100
+}

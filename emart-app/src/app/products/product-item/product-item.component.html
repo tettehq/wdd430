@@ -1,0 +1,14 @@
+<a class="panel panel-default col-xs-5 card" [routerLink]="[product.id]">
+  <div class="row panel-heading">
+    <h3 class="col-xs-6 pull-left">{{ product?.name }}</h3>
+    <h3 class="col-xs-5 pull-right">{{ product?.price }}</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row img-div">
+      <img src="{{ product?.imageUrl }}" alt="{{ product?.name }}" class="img-responsive">
+    </div>
+    <div class="row">
+      <p>{{ product?.description }}</p>
+    </div>
+  </div>
+</a>

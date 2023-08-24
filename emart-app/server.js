@@ -6,6 +6,9 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+var dotenv = require('dotenv');
+
+dotenv.config();
 
 // import the routing file to handle the default (index) route
 var index = require('./server/routes/app');
@@ -22,7 +25,7 @@ const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }
-mongoose.connect('mongodb://127.0.0.1:27017/emart', options)
+mongoose.connect(process.env.CONNECTION_STRING, options)
 .then(() => console.log("Connected to MongoDB"))
 .catch((err) => console.log("Connection failed: " + err));;
 

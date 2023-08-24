@@ -1,0 +1,8 @@
+[{
+  "_id": {
+    "$oid": "64b2f33380030c2425d69ea2"
+  },
+  "maxProductId": 100,
+  "maxOrderId": "106",
+  "maxCartId": "141"
+}]

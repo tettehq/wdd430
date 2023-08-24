@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "64b347a4bc47d420d40224f6"
+  },
+  "id": "104",
+  "name": "Ammon Quarshie",
+  "email": "aquarsh66@gmail.com",
+  "time": "7/16/2023, 1:28:04 AM",
+  "total": "$1085.94",
+  "items": [
+    {
+      "$oid": "64b34775bc47d420d40224ea"
+    },
+    {
+      "$oid": "64b344b3bc47d420d40224ce"
+    },
+    {
+      "$oid": "64b344b1bc47d420d40224cb"
+    },
+    {
+      "$oid": "64b344bcbc47d420d40224d5"
+    }
+  ],
+  "__v": 0
+}]

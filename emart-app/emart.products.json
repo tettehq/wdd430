@@ -1,0 +1,120 @@
+[{
+  "_id": {
+    "$oid": "64b2f3edb64f64ddf44dd60a"
+  },
+  "id": "1",
+  "name": "laptop",
+  "description": "Fulfill all your tech dreams with this powerful laptop.",
+  "imageUrl": "../assets/images/laptop.jpg",
+  "price": "500.99",
+  "inventory": "10",
+  "category": "tech"
+},
+{
+  "_id": {
+    "$oid": "64b2f3edb64f64ddf44dd60b"
+  },
+  "id": "2",
+  "name": "smartphone",
+  "description": "Sometimes, smaller is just better. This could be your own pocket-sized PC.",
+  "imageUrl": "../assets/images/smartphone.jpg",
+  "price": "300.99",
+  "inventory": "50",
+  "category": "tech"
+},
+{
+  "_id": {
+    "$oid": "64b2f3edb64f64ddf44dd60c"
+  },
+  "id": "3",
+  "name": "sofa",
+  "description": "The best kind of comfort is the kind you get from sitting in the best sofas.",
+  "imageUrl": "../assets/images/sofa.jpg",
+  "price": "250.99",
+  "inventory": "40",
+  "category": "furniture"
+},
+{
+  "_id": {
+    "$oid": "64b2f3edb64f64ddf44dd60d"
+  },
+  "id": "4",
+  "name": "sneaker",
+  "description": "Whether it's for scoring baskets, or for running circles around the competition, this is your best bet.",
+  "imageUrl": "../assets/images/sneaker.jpg",
+  "price": "300.99",
+  "inventory": "50",
+  "category": "clothing"
+},
+{
+  "_id": {
+    "$oid": "64b2f3edb64f64ddf44dd60e"
+  },
+  "id": "5",
+  "name": "chair",
+  "description": "Simply offers maximum comfort at a very affordable price.",
+  "imageUrl": "../assets/images/chair.jpg",
+  "price": "100.99",
+  "inventory": "70",
+  "category": "furniture"
+},
+{
+  "_id": {
+    "$oid": "64b2f3edb64f64ddf44dd60f"
+  },
+  "id": "6",
+  "name": "cleaner",
+  "description": "Not even the most stubborn, or the dirtiest stains can resist this cleaner.",
+  "imageUrl": "../assets/images/cleaner.jpg",
+  "price": "50.99",
+  "inventory": "50",
+  "category": "cleaning"
+},
+{
+  "_id": {
+    "$oid": "64b2f3edb64f64ddf44dd610"
+  },
+  "id": "7",
+  "name": "wipes",
+  "description": "This is the power to disinfect everything with just one wipe.",
+  "imageUrl": "../assets/images/wipes.jpg",
+  "price": "40.50",
+  "inventory": "20",
+  "category": "cleaning"
+},
+{
+  "_id": {
+    "$oid": "64b2f3edb64f64ddf44dd611"
+  },
+  "id": "8",
+  "name": "spatula set",
+  "description": "Become a master of the spatula arts with this sweet set of wooden spatulas, among other things.",
+  "imageUrl": "../assets/images/spatula.jpg",
+  "price": "150.99",
+  "inventory": "80",
+  "category": "kitchenware"
+},
+{
+  "_id": {
+    "$oid": "64b2f3edb64f64ddf44dd612"
+  },
+  "id": "9",
+  "name": "cutlery",
+  "description": "This sleek set of fine cutlery will tell everyone how refined you are.",
+  "imageUrl": "../assets/images/cutlery.jpg",
+  "price": "90.99",
+  "inventory": "70",
+  "category": "kitchenware"
+},
+{
+  "_id": {
+    "$oid": "64b2f3edb64f64ddf44dd613"
+  },
+  "id": "10",
+  "name": "jeans",
+  "description": "Who doesn't wear jeans these days? Get yourself a nice pair.",
+  "imageUrl": "../assets/images/jeans.jpg",
+  "price": "40.99",
+  "inventory": "100",
+  "category": "clothing"
+}]

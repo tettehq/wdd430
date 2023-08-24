@@ -18,7 +18,7 @@ export class CartService {
   maxCartContentId: number;
 
   localUrl: string = 'http://localhost:3000/cart-backend/';
-  remoteUrl: string = 'https://tettehq.github.io/wdd430/emart-app/dist/emart-app/cart-backend';
+  remoteUrl: string = 'https://tettehq.github.io/wdd430/emart-app/deploy/emart-app/cart-backend';
 
   constructor(private http: HttpClient) {
     // this.cartContents = MOCKCART;

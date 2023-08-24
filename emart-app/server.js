@@ -54,7 +54,7 @@ app.use((req, res, next) => {
 
 // Tell express to use the specified directory as the
 // root directory for your web site
-app.use(express.static(path.join(__dirname, 'dist/emart-app')));
+app.use(express.static(path.join(__dirname, 'deploy/emart-app')));
 
 // Tell express to map the default route ('/') to the index route
 app.use('/', index);
@@ -66,7 +66,7 @@ app.use('/cart-backend', cartRoutes);
 
 // Tell express to map all other non-defined routes back to the index page
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/emart-app/index.html'));
+  res.sendFile(path.join(__dirname, 'deploy/emart-app/index.html'));
 });
 
 // Define the port address and tell express to use this port

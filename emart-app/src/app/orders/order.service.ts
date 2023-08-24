@@ -17,7 +17,7 @@ export class OrderService {
   maxOrderId: number;
 
   localUrl: string = 'http://localhost:3000/orders-backend/';
-  remoteUrl: string = 'https://tettehq.github.io/wdd430/emart-app/dist/emart-app/orders-backend';
+  remoteUrl: string = 'https://tettehq.github.io/wdd430/emart-app/deploy/emart-app/orders-backend';
 
   constructor(private http: HttpClient) {
     // this.orders = [];

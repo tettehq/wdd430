@@ -18,6 +18,7 @@ export class CartService {
   maxCartContentId: number;
 
   localUrl: string = 'http://localhost:3000/cart-backend/';
+  remoteUrl: string = 'https://tettehq.github.io/wdd430/emart-app/dist/emart-app/cart-backend';
 
   constructor(private http: HttpClient) {
     // this.cartContents = MOCKCART;
@@ -27,7 +28,7 @@ export class CartService {
 
   getProducts() {
     // return this.products.slice();
-    this.http.get<{message: string, cartList: Cart[]}>(this.localUrl).subscribe(
+    this.http.get<{message: string, cartList: Cart[]}>(this.remoteUrl).subscribe(
       (response: {message: string, cartList: Cart[]}) => {
         this.cartContents = response.cartList;
         this.maxCartContentId = this.getMaxId();
@@ -66,7 +67,7 @@ export class CartService {
     // this.sortAndSend();
 
     if (!product) {
-      this.http.delete(this.localUrl + null)
+      this.http.delete(this.remoteUrl + null)
       .subscribe(
         (response: Response) => {
           this.cartContents = [];
@@ -83,7 +84,7 @@ export class CartService {
     }
 
     // delete from database
-    this.http.delete(this.localUrl + product.id)
+    this.http.delete(this.remoteUrl + product.id)
       .subscribe(
         (response: Response) => {
           this.cartContents.splice(pos, 1);
@@ -143,7 +144,7 @@ export class CartService {
   const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
   // add to database
-  this.http.post<{ message: string, product: Cart }>(this.localUrl,
+  this.http.post<{ message: string, product: Cart }>(this.remoteUrl,
     newProduct,
     { headers: headers })
     .subscribe(
@@ -190,7 +191,7 @@ export class CartService {
   const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
   // update database
-  this.http.put(this.localUrl + originalProduct.id,
+  this.http.put(this.remoteUrl + originalProduct.id,
     newProduct, { headers: headers })
     .subscribe(
       (response: Response) => {
@@ -216,7 +217,7 @@ export class CartService {
 //  storeProducts() {
 //   const data = JSON.stringify(this.products);
 //   return this.http.put(
-//     this.localUrl,
+//     this.remoteUrl,
 //     data,
 //     {
 //       headers: new HttpHeaders({'Content-Type': 'application/json'})

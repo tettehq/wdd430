@@ -18,6 +18,7 @@ export class ProductService {
   maxProductId: number;
 
   localUrl: string = 'http://localhost:3000/products-backend/';
+  remoteUrl: string = 'https://tettehq.github.io/wdd430/emart-app/dist/emart-app/products-backend';
 
   constructor(private http: HttpClient) {
     // this.products = MOCKPRODUCTS;
@@ -27,7 +28,7 @@ export class ProductService {
 
   getProducts() {
     // return this.products.slice();
-    this.http.get<{message: string, products: Product[]}>(this.localUrl).subscribe(
+    this.http.get<{message: string, products: Product[]}>(this.remoteUrl).subscribe(
       (response: {message: string, products: Product[]}) => {
         this.products = response.products;
         this.maxProductId = this.getMaxId();
@@ -73,7 +74,7 @@ export class ProductService {
     }
 
     // delete from database
-    this.http.delete(this.localUrl + product.id)
+    this.http.delete(this.remoteUrl + product.id)
       .subscribe(
         (response: Response) => {
           this.products.splice(pos, 1);
@@ -115,7 +116,7 @@ export class ProductService {
   const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
   // add to database
-  this.http.post<{ message: string, product: Product }>(this.localUrl,
+  this.http.post<{ message: string, product: Product }>(this.remoteUrl,
     newProduct,
     { headers: headers })
     .subscribe(
@@ -158,7 +159,7 @@ export class ProductService {
   const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
   // update database
-  this.http.put(this.localUrl + originalProduct.id,
+  this.http.put(this.remoteUrl + originalProduct.id,
     newProduct, { headers: headers })
     .subscribe(
       (response: Response) => {
@@ -180,7 +181,7 @@ export class ProductService {
 //  storeProducts() {
 //   const data = JSON.stringify(this.products);
 //   return this.http.put(
-//     this.localUrl,
+//     this.remoteUrl,
 //     data,
 //     {
 //       headers: new HttpHeaders({'Content-Type': 'application/json'})

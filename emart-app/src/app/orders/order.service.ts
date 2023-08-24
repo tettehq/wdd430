@@ -17,6 +17,7 @@ export class OrderService {
   maxOrderId: number;
 
   localUrl: string = 'http://localhost:3000/orders-backend/';
+  remoteUrl: string = 'https://tettehq.github.io/wdd430/emart-app/dist/emart-app/orders-backend';
 
   constructor(private http: HttpClient) {
     // this.orders = [];
@@ -37,7 +38,7 @@ export class OrderService {
   }
 
   getOrders() {
-    this.http.get<{message: string, orders: Order[]}>(this.localUrl).subscribe(
+    this.http.get<{message: string, orders: Order[]}>(this.remoteUrl).subscribe(
       (response: {message: string, orders: Order[]}) => {
         this.orders = response.orders;
         this.maxOrderId = this.getMaxId();
@@ -70,7 +71,7 @@ export class OrderService {
 
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
-    this.http.post<{ message: string, order: Order }>(this.localUrl,
+    this.http.post<{ message: string, order: Order }>(this.remoteUrl,
       newOrder,
       { headers: headers })
       .subscribe(
@@ -96,7 +97,7 @@ export class OrderService {
     }
 
     // delete from database
-    this.http.delete(this.localUrl + order.id)
+    this.http.delete(this.remoteUrl + order.id)
       .subscribe(
         (response: Response) => {
           this.orders.splice(pos, 1);

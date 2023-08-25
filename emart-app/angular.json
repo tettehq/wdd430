@@ -97,8 +97,8 @@
           "builder": "@netlify-builder/deploy:deploy",
           "options": {
             "outputPath": "deploy/emart-app",
-            "netlifyToken": "",
-            "siteId": ""
+            "netlifyToken": "8TlQ7XmR1K8Z3E4UjoRXHJ-QovjpFkzJg7cIPgFUlMQ",
+            "siteId": "f65c8a2b-0104-443a-a81d-f0b069e4c059"
           }
         }
       }
